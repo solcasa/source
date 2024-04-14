@@ -1,0 +1,14 @@
+* {
+    outline: 1px solid tomato-;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 48px 0;
+    text-align: center;
+}
+
+ul>li {
+    font-size: 24px;
+}
