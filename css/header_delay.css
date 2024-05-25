@@ -6,6 +6,12 @@ body {
     background: #ddd;
 }
 
+.inner {
+    max-width: 1900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 html.m-menu-scroll,
 html.m-menu-scroll>body {
     overflow: hidden;
@@ -26,11 +32,13 @@ html.m-menu-scroll>body {
     justify-content: space-between;
     align-items: center;
     position: relative;
+
+    height: 100px;
 }
 
 .header_wrap .top-menu-bar .row {
     display: flex;
-    gap: 40px;
+    gap: 70px;
 }
 
 .header_wrap .top-menu-bar .row>li>a {
@@ -120,27 +128,6 @@ html.m-menu-scroll>body {
     transition: height .3s;
 }
 
-.m-header {
-    display: none;
-}
-
-@media (max-width:768px) {
-
-    .site_map,
-    .top-menu-bar {
-        display: none;
-    }
-
-    .m-header {
-        display: block;
-    }
-
-    .header,
-    .header_wrap {
-        height: 80px;
-    }
-}
-
 .m-header .m-menu-btn {
     position: absolute;
     top: 50%;
@@ -186,9 +173,9 @@ html.m-menu-scroll>body {
 
 .m-header .mobile-mask {
     position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
+    top: 0;
+    right: 0;
+    width: 20%;
     height: 0;
     background-color: #fff;
     z-index: -5;
@@ -198,9 +185,9 @@ html.m-menu-scroll>body {
 .m-header .m-menu-list {
     overflow-y: auto;
     position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
+    top: 100px;
+    right: 0;
+    width: 19%;
 }
 
 
@@ -266,4 +253,146 @@ html.m-menu-scroll>body {
     text-align: left;
     padding: 10px 0;
     font-size: 15px;
+}
+
+
+@media (max-width:768px) {
+
+    .top-menu-bar {
+        display: none;
+    }
+
+    .header,
+    .header_wrap {
+        height: 80px;
+    }
+
+
+    .m-header .m-menu-btn {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translatey(-50%);
+        width: 46px;
+        height: 46px;
+        cursor: pointer;
+    }
+
+    .m-header .m-menu-btn>div {
+        width: 50%;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        transform: translatex(-50%);
+        transition: top .2s, transform .2s, opacity .2s;
+    }
+
+    .m-header .m-menu-btn>div:nth-child(2) {
+        top: 23px;
+    }
+
+    .m-header .m-menu-btn>div:nth-child(3) {
+        top: 30px;
+    }
+
+    .m-header .m-menu-btn.active div:nth-child(1) {
+        top: 50%;
+        transform: translatex(-50%) translatey(-50%) rotate(45deg);
+    }
+
+    .m-header .m-menu-btn.active div:nth-child(3) {
+        top: 50%;
+        transform: translatex(-50%) translatey(-50%) rotate(-45deg);
+    }
+
+    .m-header .m-menu-btn.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .m-header .mobile-mask {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #fff;
+        z-index: -5;
+        transition: height .3s;
+    }
+
+    .m-header .m-menu-list {
+        overflow-y: auto;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+    }
+
+
+    .m-header .m-menu-list ul>li {
+        /* border-bottom: 1px solid #ccc; */
+        visibility: hidden;
+        transform: translatey(-20px);
+        opacity: 0;
+        position: relative;
+    }
+
+    .m-header .m-menu-list.active ul>li {
+        visibility: visible;
+        transform: translatey(0);
+        opacity: 1;
+    }
+
+    .m-header .m-menu-list.active ul>li.delay-1 {
+        transition: visibility .5s, opacity .5s, transform .5s;
+    }
+
+    .m-header .m-menu-list.active ul>li.delay-2 {
+        transition: visibility .5s .1s, opacity .5s .1s, transform .5s .1s;
+    }
+
+    .m-header .m-menu-list.active ul>li.delay-3 {
+        transition: visibility .5s .2s, opacity .5s .2s, transform .5s .2s;
+    }
+
+    .m-header .m-menu-list.active ul>li.delay-4 {
+        transition: visibility .5s .3s, opacity .5s .3s, transform .5s .3s;
+    }
+
+    .m-header .m-menu-list.active ul>li.delay-5 {
+        transition: visibility .5s .4s, opacity .5s .4s, transform .5s .4s;
+    }
+
+    .m-header .m-menu-list ul>li>a {
+        display: block;
+        padding: 30px 24px;
+        font-size: 18px;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .m-header .m-menu-list ul>li i {
+        transition: transform .3s;
+    }
+
+    .m-header .m-menu-list ul>li.active i {
+        transform: rotate(180deg);
+    }
+
+    .m-header .m-menu-list ul>li ul {
+        padding: 20px 48px;
+        background-color: #f9f9f9;
+        display: none;
+    }
+
+    .m-header .m-menu-list ul>li ul>li>a {
+        display: block;
+        text-align: left;
+        padding: 10px 0;
+        font-size: 15px;
+    }
+
 }
