@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img_ani</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/img_ani.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/img_ani.js" defer></script>
+</head>
+
+<body>
+    <div class="wrap wrap01">
+        <h2>이미지 확대 & 둥둥</h2>
+        <div class="image-container">
+            <img src="../images/main_vi.jpg" alt="Sample Image">
+        </div>
+        <div class="doong">
+        </div>
+    </div>
+    <div class="wrap wrap02">
+        <h2>GSAP 이미지 둥둥</h2>
+        <div class="wrapper">
+            <img src="../images/main_vi.jpg" alt="" class="floating1" />
+            <img src="../images/main_vi.jpg" alt="" class="floating2" />
+            <img src="../images/main_vi.jpg" alt="" class="floating3" />
+        </div>
+    </div>
+</body>
+
+</html>
