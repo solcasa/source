@@ -1,0 +1,123 @@
+.wrap {
+    background-image: url(../images/main_vi.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.history {
+    display: flex;
+    justify-content: center;
+}
+
+.history>li {
+    display: flex;
+    position: relative;
+    width: 20%;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.history>li::before {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    content: "";
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history>li:last-child:before {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    content: "";
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history>li:hover {
+    background-image: url(../images/bg-grd-content2.png);
+    background-position-y: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.history>li:hover .history-content {
+    margin-top: 300px;
+}
+
+.history>li:hover .history-desc {
+    display: block;
+}
+
+.history>li:hover .year {
+    color: #ffb400;
+}
+
+.history-content {
+    width: 100%;
+    margin-top: 500px;
+    overflow: hidden;
+    transition: all 300ms ease-out;
+}
+
+.history-content h3 {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.history-content .year {
+    font-weight: 800;
+    font-size: 50px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.year-first {
+    position: relative;
+    left: -20px;
+}
+
+.year-first::after {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    content: "";
+    background-color: #fff;
+}
+
+.year-second {
+    position: relative;
+    left: 40px;
+}
+
+.history-desc {
+    display: none;
+}
+
+.history-desc>div {
+    position: relative;
+    font-weight: 200;
+    line-height: 2;
+}
+
+.history-desc>div::after {
+    display: block;
+    width: 50px;
+    height: 1px;
+    margin: 50px auto;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.history-desc a::after {
+    display: inline-block;
+    position: relative;
+    bottom: 2px;
+    padding: 0 10px;
+    content: url(../images/ico-link.png);
+}
