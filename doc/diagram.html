@@ -17,6 +17,35 @@
     <script src="../js/custom.js"></script>
 </head>
 
+<style>
+    .main_con {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+
+        position: relative;
+    }
+
+    .main_con .main_box {
+        outline: 1px solid tomato;
+        height: 300px;
+    }
+
+    .main_con .b5 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background: tomato;
+        width: 30%;
+        max-width: 300px;
+        /* 최대 크기 */
+        min-width: 150px;
+        /* 최소 크기 */
+    }
+</style>
+
 <body>
     <div class="wrap">
         <section class="main_content sec">
@@ -53,6 +82,16 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section class="test_Wrap sec">
+            <div class="main_con inner">
+                <div class="main_box">01</div>
+                <div class="main_box">02</div>
+                <div class="main_box">03</div>
+                <div class="main_box">04</div>
+                <div class="main_box b5">05</div>
             </div>
         </section>
     </div>
