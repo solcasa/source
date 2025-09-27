@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diagram</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/slick.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/custom.js"></script>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        font-family: sans-serif;
+    }
+
+    /* .header {
+        height: 80px;
+        background: #333;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    } */
+
+    .header {
+        position: absolute;
+        /* 사진 위에 얹히게 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(51, 51, 51, 0.6);
+        /* 투명도 주면 배경 사진이 비침 */
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        /* 탭메뉴보다 위 */
+    }
+
+    .sub-top-banner {
+        /* height: 200px;
+        background: url(../images/main_vi.jpg) no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center; */
+
+        position: relative;
+        /* absolute 위치 계산 기준 */
+        height: 400px;
+        /* 높이를 넉넉히 줘야 헤더+탭메뉴가 겹쳐질 공간 확보 */
+        background: url(../images/main_vi.jpg) no-repeat center center/cover;
+        display: flex;
+        align-items: flex-end;
+        /* 아래쪽에 탭메뉴를 올리기 쉽게 */
+        justify-content: center;
+        padding-bottom: 100px;
+        /* 탭메뉴 내려올 여유 */
+
+    }
+
+    /* sticky + 가운데 정렬 */
+    .tab-menu {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        /* background: #f5f5f5; */
+        border-bottom: 1px solid #ccc;
+    }
+
+    .tab-menu ul {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        text-align: center;
+
+
+
+        justify-content: center;
+        background: transparent;
+
+    }
+
+    .tab-menu ul>* {
+        flex: 1;
+    }
+
+    .tab-menu li a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: #333;
+        transition: background .3s ease, color .3s ease;
+    }
+
+    /* 클릭 시 활성화 스타일 */
+    .tab-menu li a.active {
+        background: #000;
+        color: #fff;
+    }
+
+    .sub-content {
+        padding: 40px 20px;
+    }
+
+    .footer {
+        background: #222;
+        color: #fff;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <header class="header">
+        헤더영역
+    </header>
+
+    <section class="sub-top-banner">
+        서브탑배너
+    </section>
+
+    <nav class="tab-menu">
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+
+    <section class="sub-content">
+        <p style="height:2000px;">스크롤 테스트용 컨텐츠</p>
+    </section>
+
+    <footer class="footer">
+        푸터영역
+    </footer>
+
+
+</body>
+<script>
+    const tabs = document.querySelectorAll('.tab-menu li a');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault(); // a태그 기본 이동 막기 (원하면 삭제)
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        });
+    });
+</script>
+
+
+
+</html>

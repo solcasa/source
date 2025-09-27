@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diagram</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/slick.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/custom.js"></script>
+</head>
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Tab Menu + Active Example</title>
+
+    <!DOCTYPE html>
+    <html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fixed Tab Menu + Rounded + Active</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: sans-serif;
+            }
+
+            /* header */
+            .header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                padding: 20px;
+                z-index: 10;
+            }
+
+            /* 서브탑배너 */
+            .sub_top_banner {
+                height: 400px;
+                background: url(../images/main_vi.jpg) no-repeat center/center/cover;
+                position: relative;
+            }
+
+            /* 탭메뉴 */
+            .tab_menu {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 1200px;
+                width: 90%;
+                background: tomato;
+                border-radius: 50px;
+                z-index: 9;
+                transition: all 0.3s ease;
+                padding: 5px 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            /* fixed 전환 시 */
+            .tab_menu.fixed {
+                position: fixed;
+                top: 10px;
+                bottom: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            /* 탭 ul */
+            .tab_menu ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .tab_menu ul li a {
+                display: block;
+                padding: 10px 30px;
+                text-decoration: none;
+                color: #fff;
+                font-weight: bold;
+                background: transparent;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            }
+
+            /* 활성화 메뉴 */
+            .tab_menu ul li a.active {
+                background: #000;
+            }
+
+            /* content */
+            .content {
+                padding-top: 80px;
+                /* fixed 메뉴 높이 확보 */
+            }
+
+            /* footer */
+            .footer {
+                background: #222;
+                color: #fff;
+                text-align: center;
+                padding: 30px;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <header class="header">Header</header>
+
+    <div class="sub_top_banner">
+        서브탑배너
+
+        <nav class="tab_menu">
+            <ul>
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+                <li><a href="#">메뉴3</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="content">
+        <div style="height:2000px;background:#f5f5f5;">콘텐츠 영역</div>
+    </section>
+
+    <footer class="footer">푸터</footer>
+
+    <script>
+        const tabMenu = document.querySelector('.tab_menu');
+        const banner = document.querySelector('.sub_top_banner');
+        const menuLinks = document.querySelectorAll('.tab_menu ul li a');
+
+        // 배너 bottom 기준
+        const bannerBottom = banner.offsetTop + banner.offsetHeight - 10;
+
+        // 스크롤 이벤트: fixed 전환
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= bannerBottom) {
+                tabMenu.classList.add('fixed');
+            } else {
+                tabMenu.classList.remove('fixed');
+            }
+        });
+
+        // 초기: 첫 메뉴 활성화
+        menuLinks[0].classList.add('active');
+
+        // 메뉴 클릭 이벤트
+        menuLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                menuLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
